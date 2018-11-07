@@ -1,0 +1,22 @@
+<% if user_signed_in? %>
+  <h1 class="text-center margin-header-bis">Hello <%= current_user.username %>,<br>welcome to the Gossip Project</h1>
+  <div class="center jumbotron text-center" style="background: transparent;">
+    <div class="text-center">
+      <div class="btn-group" role="group" style="padding: 50px;">
+        <a href="/gossips/new" class="btn btn-outline-dark pers" style="padding: 10px 30px;">Create a Gossip</a>
+        <a href="/gossips" class="btn btn-outline-dark pers" style="padding: 10px 30px;">Show Gossips List</a>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <h1 class="text-center margin-header-bis">Welcome to the Gossip Project</h1>
+  <div class="center jumbotron text-center" style="background: transparent;">
+    <h3>Join our students 🎓</h3>
+    <div class="text-center">
+      <div class="btn-group" role="group" style="padding: 50px;">
+        <a href="/users/sign_in" class="btn btn-outline-dark pers" style="padding: 10px 30px;">Sign In</a>
+        <a href="/users/sign_up" class="btn btn-outline-dark pers" style="padding: 10px 30px;">Register</a>
+      </div>
+    </div>
+  </div>
+<% end %>

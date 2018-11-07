@@ -1,0 +1,23 @@
+<h1 class="text-center margin-header-bis">Gossip n°<%= @gossip.id %></h1>
+
+<div class="margin-header">
+  <div class="card text-white bg-dark mb-3" style="max-width: 18rem; margin: auto; opacity: 0.9;">
+    <div class="card-header" style="border-color: #fff;"><i>By <%= User.find(@gossip.user_id).username %></i></div>
+    <div class="card-body">
+      <h5 class="card-title"><%= @gossip.title.capitalize %></h5>
+      <p class="card-text"><%= @gossip.content.capitalize %></p>
+    </div>
+  </div>
+</div>
+<p class="text-center"><i>Created at:</i> <%= @gossip.created_at %></p>
+<p class="text-center"><i>Updated at:</i> <%= @gossip.updated_at %></p>
+
+<div class="text-center">
+  <div class="btn-group" role="group">
+    <a href="/" class="btn btn-outline-dark">Back to home</a>
+    <% if (user_signed_in? && (current_user.id == @gossip.user_id)) %>
+    <a href="/gossips/<%= @gossip.id %>/edit" class="btn btn-outline-dark">Edit this gossip</a>
+    <a href="<%= gossip_path(@gossip)%>" class="btn btn-outline-danger" data-confirm="Are you sure?" data-method="DELETE">Delete this gossip</a>
+    <% end %>
+  </div>
+</div>

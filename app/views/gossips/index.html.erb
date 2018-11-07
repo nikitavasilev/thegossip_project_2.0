@@ -1,0 +1,22 @@
+
+<h2 class="text-center margin-header-bis">List of all gossips:</h2>
+<div class="container margin-header">
+  <% @gossip.each do |gossip| %>
+    <div class="col">
+      <div class="card text-white bg-dark mb-3" style="margin: auto; opacity: 0.9;">
+        <div class="card-body">
+          <h5 class="card-title"><strong>Gossip n°<%= gossip.id %> - <i>by <%= User.find(gossip.user_id).username %></i></strong></h5>
+          <p class="card-text">"<%= gossip.content %>"</p>
+          <div class="btn-group" role="group">
+            <a href="/gossips/<%= gossip.id %>" class="btn btn-outline-warning">Show more</a>
+            <% if (user_signed_in? && (current_user.id == gossip.user_id)) %>
+              <a href="/gossips/<%= gossip.id %>/edit" class="btn btn-outline-warning">Edit this gossip</a>
+              <a href="<%= gossip_path(@gossip)%>" class="btn btn-outline-danger"
+              style="margin-left: 10px;" data-confirm="Are you sure?" data-method="DELETE">Delete this gossip</a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

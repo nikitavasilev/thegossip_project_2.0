@@ -1,0 +1,10 @@
+<h2 class="text-center margin-header">Edit this gossip:</h2>
+<div class="container margin-header">
+	<%= form_for(@gossip, url: gossips_path) do |f| %>
+    <strong><%= f.label :title %></strong><br />
+		<%= f.text_field :title, placeholder: "A title.." %>		
+		<strong><%= f.label :content %></strong><br />
+		<%= f.text_area :content, placeholder: "Write something...", size: "60x10" %>
+		<%= f.submit "Submit" %>
+	<% end %>
+</div>
