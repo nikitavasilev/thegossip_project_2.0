@@ -7,7 +7,8 @@ def user_table
       username: Faker::Internet.username,
       email: Faker::Internet.email,
       password: @pass,
-      password_confirmation: @pass
+      password_confirmation: @pass,
+      sign_up_code: 'THP'
       )
 	end
 end
